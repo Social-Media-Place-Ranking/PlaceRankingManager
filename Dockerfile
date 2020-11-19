@@ -11,7 +11,7 @@ ADD . /app
 # Install any needed packages specified in requirements.txt
 RUN pip install -r requirements.txt
 
-EXPOSE 5003
+EXPOSE 5000
 
 ENTRYPOINT [ "python" ]
 
