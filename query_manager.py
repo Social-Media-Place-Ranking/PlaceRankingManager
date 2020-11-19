@@ -3,7 +3,7 @@ Import Necessary Libraries
 """
 from flask import Flask, request, jsonify, json
 from elasticsearch import Elasticsearch
-import json, requests
+import requests
 import os
 
 app = Flask(__name__)
