@@ -40,8 +40,9 @@ def get_es_results():
                                 {
                                     "name":
                                     {
-                                        "value": query,
-                                        "fuzziness": "AUTO"
+                                        "query": query,
+                                        "fuzziness": "AUTO",
+                                        "operator": "and"
                                     }
                                 }
                             },
