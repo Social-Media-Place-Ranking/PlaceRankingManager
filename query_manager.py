@@ -41,8 +41,8 @@ def get_es_results():
                                     "name":
                                     {
                                         "query": query,
-                                        "fuzziness": "AUTO",
-                                        "operator": "or"
+                                        "fuzziness": "AUTO"
+                                        
                                     }
                                 }
                             },
