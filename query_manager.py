@@ -42,7 +42,7 @@ def get_es_results():
                                     {
                                         "query": query,
                                         "fuzziness": "AUTO",
-                                        "operator": "and"
+                                        "operator": "or"
                                     }
                                 }
                             },
