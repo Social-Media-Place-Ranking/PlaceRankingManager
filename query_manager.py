@@ -48,7 +48,7 @@ def get_es_results():
                         "should": {
                             "distance_feature": {
                             "field": "location",
-                            "pivot": "2km",
+                            "pivot": "500km",
                             "origin": [lon,lat]
                                 }
                             }
