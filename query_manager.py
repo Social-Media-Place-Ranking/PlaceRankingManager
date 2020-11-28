@@ -36,7 +36,7 @@ def get_es_results():
                     "query": {
                         "bool":{
                           "must":{
-                                "fuzzy":
+                                "match":
                                 {
                                     "name":
                                     {
