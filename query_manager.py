@@ -8,8 +8,8 @@ import os
 
 app = Flask(__name__)
 es = Elasticsearch(
-    ['https://06d4ec43aa3e4460b5239afae619b838.us-central1.gcp.cloud.es.io:9243/'],
-    http_auth=("elastic", "d4d2LnnpZ7hjUq74HIjpFYaE"),
+    ['https://ef66b61709b64f359a9fb032e3320868.us-central1.gcp.cloud.es.io:9243/'],
+    http_auth=("elastic", "6av14Q56vXkyVDYSdkLJeXzi"),
 )
 """
 Flask App Routes
