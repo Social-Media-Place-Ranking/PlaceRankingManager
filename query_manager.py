@@ -31,29 +31,18 @@ def get_es_results():
         res= es.search(
             index='places', 
             body ={
-               "query":{
-                  "bool":{
-                     "must":{
-                        "match":{
-                           "name":{
-                              "query":"query",
-                              "fuzziness":"AUTO"
-                           }
-                        }
-                     },
-                     "filtered":{
-                     "filter":{
-                        "geo_distance":{
-                           "distance":"300km",
-                           "location":{
-                              "lat":42.748808,
-                              "lon":-75.779365
-                                        }
-                                    }
-                                }
+                   "query":{
+                      "bool":{
+                         "must":{
+                            "match":{
+                               "name":{
+                                  "query":"query",
+                                  "fuzziness":"AUTO"
+                               }
                             }
-                        }
-                    }
+                         }
+                      }
+                   }
                 }
              ) 
         places = json.dumps(res['hits']['hits'])
