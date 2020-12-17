@@ -44,7 +44,7 @@ def get_es_results():
                      "filter":{
                         "geo_distance":{
                            "distance":"292563.71m",
-                           "pin.location":{
+                           "_source.location":{
                               "lat":42.748808,
                               "lon":-75.779365
                            }
