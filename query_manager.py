@@ -34,7 +34,7 @@ def get_es_results():
                    "query":{
                             "match":{
                                "name":{
-                                  "query":"query",
+                                  "query":query,
                                   "fuzziness":"AUTO"
                                }
                             }
