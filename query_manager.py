@@ -30,7 +30,7 @@ def get_es_results():
         query = request.args.get("query")
         res= es.search(
             index='places', 
-            body = {
+            body ={
                "query":{
                   "bool":{
                      "must":{
@@ -41,12 +41,14 @@ def get_es_results():
                            }
                         }
                      },
+                     "filtered":{
                      "filter":{
                         "geo_distance":{
-                           "distance":"292563.71m",
+                           "distance":"300km",
                            "location":{
                               "lat":42.748808,
                               "lon":-75.779365
+                                        }
                                     }
                                 }
                             }
