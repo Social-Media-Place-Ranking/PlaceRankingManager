@@ -32,8 +32,6 @@ def get_es_results():
             index='places', 
             body ={
                    "query":{
-                      "bool":{
-                         "must":{
                             "match":{
                                "name":{
                                   "query":"query",
@@ -42,9 +40,7 @@ def get_es_results():
                             }
                          }
                       }
-                   }
-                }
-             ) 
+                    ) 
         places = json.dumps(res['hits']['hits'])
         reranked_data = requests.post(url = "https://ml-rerank-service.herokuapp.com/re-rank", json = places)
         return (jsonify(reranked_data.json()))
