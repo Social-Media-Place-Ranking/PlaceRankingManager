@@ -28,8 +28,6 @@ def get_es_results():
 
     if request.method =="GET":
         query = request.args.get("query")
-        lon = float(request.args.get("lon"))
-        lat = float(request.args.get("lat"))
         res= es.search(
             index='places', 
             body = {
