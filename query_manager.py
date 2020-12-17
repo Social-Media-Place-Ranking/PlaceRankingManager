@@ -31,6 +31,7 @@ def get_es_results():
         res= es.search(
             index='places', 
             body = {
+           "filtered":{  
                "query":{
                   "bool":{
                      "must":{
@@ -47,11 +48,12 @@ def get_es_results():
                            "location":{
                               "lat":42.748808,
                               "lon":-75.779365
-                           }
+                                    }
+                                }
+                            }
                         }
-                     }
-                  }
-               }
+                    }
+                }
             }
         ) 
         places = json.dumps(res['hits']['hits'])
