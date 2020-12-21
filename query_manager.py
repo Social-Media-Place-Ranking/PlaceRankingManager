@@ -28,6 +28,8 @@ def get_es_results():
 
     if request.method =="GET":
         query = request.args.get("query")
+        lon = request.args.get("lon")
+        lat = request.args.get("lat")
         res= es.search(
             index='places', 
             body ={
@@ -41,8 +43,8 @@ def get_es_results():
                          }
                       }
                     ) 
-        places = json.dumps(res['hits']['hits'])
-        reranked_data = requests.post(url = "https://ml-rerank-service.herokuapp.com/re-rank", json = places)
+        places = json.dumps(res['hits']['hits'][:5])
+        reranked_data = requests.post(url = "https://ml-rerank-service.herokuapp.com/re-rank?lon="+str(lon)+"&lat="+str(lat)+"&query="+query, json = places)
         return (jsonify(reranked_data.json()))
 
 """
