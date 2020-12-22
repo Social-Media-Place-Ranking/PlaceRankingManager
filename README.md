@@ -2,14 +2,14 @@
 This repository is the main API of the Places Re-ranking applictaion, it takes the web clients requests and sends them to the ml ranking API, and finally returns the re-ranked places to the web clients.
 
 ## Code flow
-* accept get requests from the web clients side (userlocations and places names in the request payload)
-* extract user location and query from request
+* accept GET requests from the web clients side (user locations and places names in the request payload)
+* extract user location and query from client request
 * send the users queries as search requests to Elasticsearch
-* extract top 5 results returned from Elasticsearch
-* send post request to the machine learning micro-service which re-ranks the Elasticsearch results (elasticsearch results as json in payload)
-* send machine learning micro-service response to web client as a json 
+* extract top 5 results returned from Elasticsearch ( top five locations based on text similarity only) 
+* send post request to the machine learning micro-service which re-ranks the Elasticsearch results (elasticsearch results as json in payload) based on places popularity on Twitter 
+* send machine learning micro-service response ( re-ranked places ) to web client as a json 
 
-## How to use
+## Usage
 
 #### to build the docker image:
 
