@@ -42,8 +42,10 @@ def get_es_results():
             }
         )
         places = {"places" : res['hits']['hits'][:5], "query" : query, "lat" : lat, "lon" : lon}
-        reranked_data = requests.post(url = "https://ml-rerank-service.herokuapp.com/re-rank", json = json.dumps(places)) 
-        return (jsonify(reranked_data.json()))
+        reranked_data = requests.post(url = "https://ml-rerank-service.herokuapp.com/re-rank", json = json.dumps(places))
+        response = jsonify(reranked_data.json())
+        response.headers.add("Access-Control-Allow-Origin","*")
+        return response
     else:
         return config.get("WELCOMING")
 """
