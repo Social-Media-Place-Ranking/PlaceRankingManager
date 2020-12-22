@@ -1,4 +1,4 @@
-# PlaceRankingManeger
+# PlaceRankingManager
 
 This repository is the backend of the Places Re-ranking applictaion, The prodecures involved in this code are as follows:
 - accepting get request from the web client side (userlocation and query in the request payload)
