@@ -18,16 +18,20 @@ def welcome():
 
 @app.route("/search", methods=["GET","POST"])
 def get_es_results():
-    """Post Method to get the data from es
+    """GET Method to get the data from Elasticsearch
 
     Returns:
         [Json]: Ranked Locations
     """
 
     if request.method == "GET":
+        #extract query from request payload
         query = request.args.get("query")
+        #extract longitude from request payload
         lon = request.args.get("lon")
+        #extract latitude from request payload
         lat = request.args.get("lat")
+        # Elasticsearch Query request
         res = es.search(
             index='places',
             body={
@@ -41,9 +45,13 @@ def get_es_results():
                 }
             }
         )
-        places = {"places" : res['hits']['hits'][:5], "query" : query, "lat" : lat, "lon" : lon}
-        reranked_data = requests.post(url = "https://ml-rerank-service.herokuapp.com/re-rank", json = json.dumps(places))
+        # create payload
+        payload = {"places" : res['hits']['hits'][:5], "query" : query, "lat" : lat, "lon" : lon}
+        # send POST request to ml micro-service
+        reranked_data = requests.post(url = "https://ml-rerank-service.herokuapp.com/re-rank", json = json.dumps(payload))
+        # converit micro-service response to json
         response = jsonify(reranked_data.json())
+        #add CORS Header to response
         response.headers.add("Access-Control-Allow-Origin","*")
         return response
     else:
@@ -52,7 +60,7 @@ def get_es_results():
 Flask App Entry Point (Main)
 """
 if __name__ == "__main__":
-
+    #open configuration
     with open("config.json") as json_file:
         # append the json file, to get all of them in on json variable
         config = json.load(json_file)
