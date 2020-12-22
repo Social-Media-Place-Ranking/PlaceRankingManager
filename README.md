@@ -1,4 +1,4 @@
-## General info
+## Introduction
 This repository is the main API of the Places Re-ranking applictaion, it takes the web clients requests and sends them to the ml ranking API, and finally returns the re-ranked places to the web clients.
 
 ## Code flow
