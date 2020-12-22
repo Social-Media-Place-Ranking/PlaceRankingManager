@@ -1,0 +1,6 @@
+{
+    "ES_ENDPOINT":"https://ef66b61709b64f359a9fb032e3320868.us-central1.gcp.cloud.es.io:9243/",
+    "ES_USERNAME":"elastic",
+    "ES_PASS": "6av14Q56vXkyVDYSdkLJeXzi",
+    "WELCOMING": "<p>This is the main API of the Places Re-ranking applictaion, it takes the web clients requests and sends them to the ml ranking API,and finally returns the re-ranked places to the web clients. Please send GET request, see the <a href='https://github.com/Social-Media-Place-Ranking/PlaceRankingManager'>Documentation</a></p>" 
+}
